@@ -2,15 +2,15 @@ import TravelGetters from './getters'
 import TravelActions from './actions'
 import TravelMutations from './mutations'
 
-export default 
-{
-    namespaced: true,
-    state: 
+export default
     {
-        tourPath: [],
-        selectedTour: {}
-    },
-    getters: TravelGetters,
-    actions : TravelActions,
-    mutations: TravelMutations
-}
+        namespaced: true,
+        state:
+        {
+            tourPath: [],
+            selectedTour: {}
+        },
+        getters: TravelGetters,
+        actions: TravelActions,
+        mutations: TravelMutations
+    }

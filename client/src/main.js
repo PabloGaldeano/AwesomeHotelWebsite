@@ -4,18 +4,20 @@ import './registerServiceWorker'
 import router from './router'
 import store from './store'
 import axios from 'axios'
-import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+import BootstrapVue from 'bootstrap-vue/dist/bootstrap-vue.esm';
+import { IconsPlugin } from 'bootstrap-vue';
 
 Vue.config.productionTip = false
 
-
+Vue.use(BootstrapVue);
+Vue.use(IconsPlugin);
 new Vue({
   router,
   store,
+  BootstrapVue,
   render: h => h(App)
 }).$mount('#app')
 
-Vue.use(BootstrapVue);
-Vue.use(IconsPlugin);
+
 Vue.$axios = axios;
 Vue.config.devtools = true

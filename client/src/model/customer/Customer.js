@@ -1,7 +1,5 @@
-class Customer
-{
-    constructor() 
-    {
+class Customer {
+    constructor() {
         this.firstName = "";
         this.middleName = "";
         this.lastName = "";

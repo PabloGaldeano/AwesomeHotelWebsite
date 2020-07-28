@@ -1,6 +1,5 @@
-export default{
-    GET_TOUR_INFORMATION(state)
-    {
+export default {
+    GET_TOUR_INFORMATION(state) {
         return state.tourPath;
     }
 }

@@ -9,7 +9,7 @@ import TripSignUp from '../views/SignUp.vue'
 
 Vue.use(VueRouter)
 
-  const routes = [
+const routes = [
   {
     path: '/',
     name: 'Home',
@@ -35,7 +35,7 @@ Vue.use(VueRouter)
     name: 'Trip tour',
     component: TripInfo
   }
-  
+
 ]
 
 const router = new VueRouter({

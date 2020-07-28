@@ -6,9 +6,9 @@ import customers from './customer/index'
 import trip from './travel/index'
 
 export default new Vuex.Store({
-  modules: 
+  modules:
   {
-      customers,trip
+    customers, trip
   }
 });
 
