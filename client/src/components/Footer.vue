@@ -1,7 +1,10 @@
 <template>
+<div class="d-flex flex-column">
+  <footer class="footer">
     <div>
-  <div class="container footer">
-    <p class="text-center">Welcome to your hotel of trust!</p>
-  </div>
+      AwesomeHotel!
+      <span>&copy; 2020 Hotels &amp; cia.</span>
+    </div>
+  </footer>
 </div>
 </template>

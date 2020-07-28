@@ -2,6 +2,7 @@
   <div id="app">
     <Header></Header>
     <router-view />
+    <notifications position="top right"/>
     <Footer></Footer>
   </div>
 </template>
@@ -10,6 +11,7 @@
 <script>
 import Header from "./components/header.vue";
 import Footer from "./components/Footer.vue";
+
 export default {
   components: { Header, Footer },
 };

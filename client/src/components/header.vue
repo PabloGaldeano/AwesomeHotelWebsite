@@ -7,6 +7,9 @@
 
       <b-collapse id="navbar-toggle-collapse" is-nav>
         <b-navbar-nav>
+          <b-nav-item v-if="!customerloggedin" :to="{'path': '/'}">
+           Home
+          </b-nav-item>
           <b-nav-item v-if="!customerloggedin" :to="{'name': 'Check-In'}">
            Check-In!
           </b-nav-item>
@@ -17,6 +20,9 @@
             Sign UP!
           </b-nav-item>
           <b-nav-item v-if="customerloggedin" :to="{'path': 'itinerary'}">
+            Check the trip information!
+          </b-nav-item>
+          <b-nav-item v-if="customerloggedin" @click="logOut">
             Check the trip information!
           </b-nav-item>
         </b-navbar-nav>
@@ -33,6 +39,13 @@ export default {
   computed: {
     ...mapGetters({ customerloggedin: "customers/GET_IS_CUSTOMER_LOGGED_IN" }),
   },
+  methods:
+  {
+    logOut()
+    {
+      console.log("bye bye")
+    }
+  }
 };
 </script>
 <style lang="less">

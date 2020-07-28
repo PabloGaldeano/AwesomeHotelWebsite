@@ -1,6 +1,9 @@
+import CookiesManager from '../../utils/cookiesManager'
+
 export default
     {
         SET_CUSTOMER_TOKEN: function (state, data) {
             state.customerToken = data;
+            CookiesManager.setTokenCookie(data)
         }
     }

@@ -1,34 +1,15 @@
-import axios from 'axios'
-import ServiceResponse from '../../model/serviceResponse';
+import Petition from '../../utils/petitionManager'
 
 export default {
     ACTION_RETRIEVE_TRIP_DATA_WITH_CUSTOMERS(context, params) {
-
-        axios.post("http://localhost:8080/tour/itinerary", JSON.stringify({ token: params }),
-            {
-                headers:
-                {
-                    'Content-Type': 'application/json'
-                }
-            }).then(res => {
-                var response = new ServiceResponse(res.data);
-                if (response.isSuccess) {
-                    context.commit('SET_ITINERARY', response.data);
-                }
-            }, (error) => { console.log(error) })
+        Petition('tour/itinerary', {token: params},'Itinerary received succesfully','Please try again later',
+        (responseData) => 
+        {
+            context.commit('SET_ITINERARY', responseData.data);
+        })
     },
     ACTION_REGISTER_CUSTOMER_FOR_TRIP(context, params) {
-        axios.post("http://localhost:8080/tour/sign_up", JSON.stringify(params),
-            {
-                headers:
-                {
-                    'Content-Type': 'application/json'
-                }
-            }).then(res => {
-                var response = new ServiceResponse(res.data);
-                if (response.isSuccess) {
-                    console.log(response)
-                }
-            }, (error) => { console.log(error) })
+        Petition('tour/sign_up', params,
+        'Congratulations! You have been registered succesfully','Please try again later')
     }
 }

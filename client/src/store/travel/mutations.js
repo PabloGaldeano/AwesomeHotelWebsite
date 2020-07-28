@@ -6,11 +6,12 @@ export default {
             while (nextStep != null) {
                 itinerary.push({
                     'totalDistance': nextStep.totalDistance, 'id': nextStep.pathInformation.travelPathID,
-                    'pathName': nextStep.pathInformation.name, 'customers': nextStep.customers
+                    'name': nextStep.pathInformation.name, 'customers': nextStep.customers
                 });
 
                 nextStep = nextStep.nextStep;
             }
+            itinerary.shift();
             itinerary.pop();
             state.tourPath = itinerary;
         }

@@ -1,21 +1,26 @@
 <template>
-  <div class="container">
-    <div id="tour" class="tourInfo" v-bind:key="path.id" v-for="path in getTripInfoWithCustomers">
-      <div class="tourStep">
-        <label>{{path.id}}</label>
-        <label>{{path.pathName}}</label>
-        <label>{{path.totalDistance}}</label>
-        <label>{{path.customers}}</label>
-      </div>
+  <div class="container" fluid>
+    <div class="d-flex flex-md-row flex-sm-column">
+    <div class="p-2" v-bind:key="path.id" v-for="path in getTripInfoWithCustomers">
+      <Destination :name="path.name" :id="path.id"></Destination>
+    <span>Distance travelled to here: <br/> {{path.totalDistance}} Km.</span>
+    <div class="d-flex flex-column">
+        <span class="text-center">Customers travelling here: </span>
+        <div class="p-2" v-bind:key="customer.id" v-for="customer in path.customers">
+          {{customer}}
+        </div>
     </div>
+    </div>
+  </div>
   </div>
 </template>
 <script>
 import { mapGetters } from "vuex";
-export default {
-  data() {
-    return { forKey: 3 };
-  },
+import Destination from "../components/Destination.vue"
+
+export default 
+{
+  components: {Destination},
   computed: {
     ...mapGetters({
       getTripInfoWithCustomers: "trip/GET_TOUR_INFORMATION",

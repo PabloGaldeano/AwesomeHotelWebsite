@@ -12,16 +12,16 @@
   >
     <b-container fluid>
 
-         <b-form-group
+    <b-form-group
       id="customerID"
-      description="Let us know your name"
+      description="Let us know your ID"
       label="Please enter your ID"
       label-for="ID-input"
-      :invalid-feedback="invalidIDFeedback"
-      :valid-feedback="validFeedback"
-      :state="IDstate"
+      :invalid-feedback="this.customerValidator.invalidIDFeedback()"
+      :valid-feedback="this.customerValidator.validFeedback()"
+      :state="this.customerValidator.checkCustomerID()"
     >
-      <b-form-input :state="IDstate" id="ID-input" v-model="customer.customerID" @change="displayCustomer" trim></b-form-input>
+      <b-form-input :state="this.customerValidator.checkCustomerID()" id="ID-input" v-model="customer.customerID" @change="displayCustomer" trim></b-form-input>
     </b-form-group>
 
     <b-form-group
@@ -29,11 +29,11 @@
       description="Your password is required to be granted access"
       label="Please enter your password"
       label-for="password-input"
-      :invalid-feedback="invalidPasswordFeedback"
-      :valid-feedback="validFeedback"
-      :state="passwordState"
+      :invalid-feedback="this.customerValidator.invalidPasswordFeedback()"
+      :valid-feedback="this.customerValidator.validFeedback()"
+      :state="this.customerValidator.checkCustomerPassword()"
     >
-      <b-form-input :state="passwordState" id="password-input" :type="`password`" v-model="customer.password" @change="displayCustomer" trim></b-form-input>
+      <b-form-input :state="this.customerValidator.checkCustomerPassword()" id="password-input" :type="`password`" v-model="customer.password" @change="displayCustomer" trim></b-form-input>
     </b-form-group>
 
     <b-button type="submit" variant="success" @click="submit"> Submit</b-button>
@@ -44,39 +44,14 @@
 
 <script>
 import Customer from "../model/customer/Customer";
-
+import CustomerValidator from "../model/validators/customerValidator";
 export default {
   data() {
+    let customerFillingForm = new Customer()
     return {
-      customer: new Customer(),
+      customer: customerFillingForm,
+      customerValidator: new CustomerValidator(customerFillingForm)
     };
-  },
-  computed:{
-      IDstate() {
-        return this.customer.customerID.length > 0 
-      },
-      passwordState()
-      {
-        return this.customer.password.length > 0
-      },
-      invalidIDFeedback() {
-        if (this.customer.customerID.length == 0) {
-          
-          return 'Your ID is required to log in'
-        } 
-        return '';
-      },
-      invalidPasswordFeedback()
-      {
-        if (this.customer.password.length == 0) {
-          
-          return 'Your password is required to log in'
-        } 
-        return ''
-      },
-      validFeedback() {
-        return 'This looks great!'
-      }
   },
   methods: {
     submit() {

@@ -6,10 +6,15 @@ import store from './store'
 import axios from 'axios'
 import BootstrapVue from 'bootstrap-vue/dist/bootstrap-vue.esm';
 import { IconsPlugin } from 'bootstrap-vue';
+import Notifications from 'vue-notification'
+import VueCookies from 'vue-cookies'
 
 Vue.config.productionTip = false
 
 Vue.use(BootstrapVue);
+Vue.use(Notifications);
+Vue.use(VueCookies)
+
 Vue.use(IconsPlugin);
 new Vue({
   router,

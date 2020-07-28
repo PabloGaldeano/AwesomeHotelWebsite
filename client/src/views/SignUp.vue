@@ -1,19 +1,31 @@
 <template>
-  <div class="container">
-    <div id="tour" class="tourInfo" v-bind:key="path.id" v-for="path in getTripInfoWithCustomers">
-      <div class="tourStep">
-        <label>{{path.pathName}}</label>
-        <a @click="signUp(path.id)">Sign up for {{path.pathName}}</a>
-      </div>
+  <div class="container" fluid>
+    <div class="d-flex flex-md-row flex-sm-column">
+    <div class="p-2" v-bind:key="path.id" v-for="path in getTripInfoWithCustomers">
+      
+    <b-card
+    title="Destination"
+    img-src="https://picsum.photos/600/300/?image=18"
+    img-alt="Image"
+    img-top
+    img-width="100"
+    tag="article"
+    style="max-width: 40rem;"
+    class="mb-4 text-center"
+  >
+      <b-card-text>
+      {{path.pathName}}
+    </b-card-text>
+    </b-card>
+    <b-button type="button" variant="info" @click="signUp(path.id)"> Sign Up</b-button>
     </div>
+  </div>
   </div>
 </template>
 <script>
 import { mapGetters } from "vuex";
+
 export default {
-  data() {
-    return { forKey: 3 };
-  },
   computed: {
     ...mapGetters({
       getTripInfoWithCustomers: "trip/GET_TOUR_INFORMATION",
@@ -27,11 +39,12 @@ export default {
     );
   },
   methods: {
-    signUp(ID) {
-      this.$store.dispatch("trip/ACTION_REGISTER_CUSTOMER_FOR_TRIP", {
-        token: this.getCustomerToken,
-        to: ID,
-      });
+    signUp(ID) 
+    {
+        this.$store.dispatch("trip/ACTION_REGISTER_CUSTOMER_FOR_TRIP", {
+          token: this.getCustomerToken,
+          to: ID,
+        });
     },
   },
 };
