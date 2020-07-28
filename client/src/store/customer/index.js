@@ -5,7 +5,7 @@ import CustomerGetters from './getters'
 
 export default 
 {
-    namespaced: true,
+    namespaced: true, 
     state: 
     {
         customerToken: null
