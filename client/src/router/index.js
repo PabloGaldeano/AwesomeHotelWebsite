@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import Checkin from '../views/Checkin.vue';
+import Checkin from '../views/Checkin.vue'
+import Login from '../views/Login.vue'
+
 Vue.use(VueRouter)
 
   const routes = [
@@ -22,6 +24,11 @@ Vue.use(VueRouter)
     path: '/checkin',
     name: 'Check-In',
     component: Checkin
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login
   }
 ]
 

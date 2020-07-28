@@ -2,14 +2,13 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 Vue.use(Vuex)
+import customers from './customer/index'
 
 export default new Vuex.Store({
-  state: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
-  modules: {
+  modules: 
+  {
+      customers
   }
-})
+});
+
+

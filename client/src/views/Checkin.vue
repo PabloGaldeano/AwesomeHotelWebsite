@@ -40,8 +40,6 @@
 
 <script>
 import Customer from '../model/customer/Customer';
-import axios from 'axios'
-
 export default {
     data()
     {
@@ -53,16 +51,7 @@ export default {
     {
         onSubmit() 
         {
-            axios.post("http://localhost:8080/customer/check_in",JSON.stringify(this.customer), 
-            {
-                headers: 
-                {
-                    'Content-Type' : 'application/json'
-                }
-            }).then(res => 
-            {
-                console.log(res.data)
-            }, (error) => { console.log(error)})
+            this.$store.dispatch('customers/ACTION_CHECK_IN_CUSTOMER', this.customer);
         },
         displayCustomer()
         {
