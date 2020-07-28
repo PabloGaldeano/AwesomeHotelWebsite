@@ -18,3 +18,4 @@ new Vue({
 Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
 Vue.$axios = axios;
+Vue.config.devtools = true

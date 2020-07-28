@@ -40,12 +40,15 @@
 
 <script>
 import Customer from '../model/customer/Customer';
-export default {
+
+export default 
+{
+
     data()
     {
         return { 
             customer : new Customer()
-         }
+        }
     },
     methods: 
     {

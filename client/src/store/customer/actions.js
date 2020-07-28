@@ -13,7 +13,7 @@ export default
             }
         }).then(res => 
         {
-            var response = new ServiceResponse(res);
+            var response = new ServiceResponse(res.data);
             if(response.isSuccess)
             {
                     // Dispatch alert
@@ -33,8 +33,6 @@ export default
             }).then(res => 
             {
                 var response = new ServiceResponse(res.data);
-                console.log(res);
-            
                 if(response.isSuccess)
                 {
                      context.commit('SET_CUSTOMER_TOKEN', response.data)

@@ -1,7 +1,7 @@
 
-import actions from './actions'
+import CustomerActions from './actions'
 import customerMutations from './mutations'
-import customerGetters from './getters'
+import CustomerGetters from './getters'
 
 export default 
 {
@@ -10,7 +10,7 @@ export default
     {
         customerToken: null
     },
-    getters: customerGetters,
-    actions : actions,
+    getters: CustomerGetters,
+    actions : CustomerActions,
     mutations: customerMutations
 }

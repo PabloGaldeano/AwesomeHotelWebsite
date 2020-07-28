@@ -3,6 +3,9 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Checkin from '../views/Checkin.vue'
 import Login from '../views/Login.vue'
+import TripInfo from '../views/Tour.vue'
+import TripSignUp from '../views/SignUp.vue'
+
 
 Vue.use(VueRouter)
 
@@ -13,14 +16,6 @@ Vue.use(VueRouter)
     component: Home
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  },
-  {
     path: '/checkin',
     name: 'Check-In',
     component: Checkin
@@ -29,7 +24,18 @@ Vue.use(VueRouter)
     path: '/login',
     name: 'Login',
     component: Login
+  },
+  {
+    path: '/travelSignUp',
+    name: 'Sign Up for a trip!',
+    component: TripSignUp
+  },
+  {
+    path: '/itinerary',
+    name: 'Trip tour',
+    component: TripInfo
   }
+  
 ]
 
 const router = new VueRouter({
