@@ -2,7 +2,7 @@
   <div id="app">
     <Header></Header>
     <router-view />
-    <notifications position="top right"/>
+    <notifications position="bottom right" />
     <Footer></Footer>
   </div>
 </template>

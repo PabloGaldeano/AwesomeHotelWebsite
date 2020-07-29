@@ -1,6 +1,7 @@
 <template>
   <div>
-    <b-alert class="mt-3"
+    <b-alert
+      class="mt-3"
       :show="dismissCountDown"
       dismissible
       variant="warning"
@@ -18,14 +19,13 @@ export default {
   data() {
     return {
       dismissSecs: 10,
-      dismissCountDown: 10
+      dismissCountDown: 10,
     };
   },
   methods: {
-    alertDismissed()
-    {
+    alertDismissed() {
       console.log("chao chao");
-      this.dismissCountDown =0
+      this.dismissCountDown = 0;
     },
     countDownChanged(dismissCountDown) {
       this.dismissCountDown = dismissCountDown;

@@ -1,54 +1,43 @@
 import Customer from "../customer/Customer";
 
-class CustomerValidator
-{
-    constructor(customer)
-    {
+class CustomerValidator {
+    constructor(customer) {
         this.customerData = customer || new Customer();
     }
 
-    checkCustomerID()
-    {
+    checkCustomerID() {
         return this.customerData.customerID.length > 0;
     }
 
-    checkCustomerPassword()
-    {
-      return this.customerData.password.length > 0;
+    checkCustomerPassword() {
+        return this.customerData.password.length > 0;
     }
 
-    checkCustomerFirstName()
-    {
+    checkCustomerFirstName() {
         return this.customerData.firstName.length > 0;
     }
 
-    checkCustomerLastName()
-    {
+    checkCustomerLastName() {
         return this.customerData.lastName.length > 0;
     }
 
-    invalidIDFeedback() 
-    {
+    invalidIDFeedback() {
         return (!this.checkCustomerID()) ? 'Your ID is required' : '';
     }
 
-    invalidPasswordFeedback()
-    {
-    return (!this.checkCustomerPassword()) ? 'Your password is required' : '';
+    invalidPasswordFeedback() {
+        return (!this.checkCustomerPassword()) ? 'Your password is required' : '';
     }
 
-    invalidFirstNameFeedback()
-    {
+    invalidFirstNameFeedback() {
         return (!this.checkCustomerFirstName()) ? 'Your first name is required' : '';
     }
 
-    invalidLastNameFeedback()
-    {
+    invalidLastNameFeedback() {
         return (!this.checkCustomerLastName()) ? 'Your last name is required to log in' : '';
     }
 
-    validFeedback() 
-    {
+    validFeedback() {
         return 'This looks great!'
     }
 }

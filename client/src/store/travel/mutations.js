@@ -5,14 +5,15 @@ export default {
             let itinerary = []
             while (nextStep != null) {
                 itinerary.push({
-                    'totalDistance': nextStep.totalDistance, 'id': nextStep.pathInformation.travelPathID,
+                    'totalDistance': nextStep.totalDistance, 'id': nextStep.pathInformation.id,
                     'name': nextStep.pathInformation.name, 'customers': nextStep.customers
                 });
 
                 nextStep = nextStep.nextStep;
             }
             itinerary.shift();
-            itinerary.pop();
+            console.log(itinerary);
+
             state.tourPath = itinerary;
         }
     }

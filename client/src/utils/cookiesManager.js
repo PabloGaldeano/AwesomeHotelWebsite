@@ -1,33 +1,30 @@
 import Vue from 'vue'
-class CookiesManager
-{
-    constructor()
-    {
+class CookiesManager {
+    constructor() {
 
     }
 
-    setCookie(key, value)
-    {
-        Vue.$cookies.set(key,value);
+    setCookie(key, value) {
+        Vue.$cookies.set(key, value);
     }
 
-    getCookieStringValue(key)
-    {
+    getCookieStringValue(key) {
         return Vue.$cookies.get(key);
     }
 
-    deleteCookie(key)
-    {
+    deleteCookie(key) {
         Vue.$cookies.remove(key);
     }
 
-    setTokenCookie(token)
-    {
+    setTokenCookie(token) {
         this.setCookie('token', token)
     }
 
-    getTokenCookie()
-    {
+    deleteTokenCookie() {
+        this.deleteCookie('token')
+    }
+
+    getTokenCookie() {
         return this.getCookieStringValue('token')
     }
 }
